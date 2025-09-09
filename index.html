@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Cafetería Salnaya | Menú</title>
+  <link rel="icon" href="./resources/img/logoFondo.png">
   <!-- Bootstrap 5 CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- Bootstrap Icons -->
@@ -15,22 +16,26 @@
       font-family: "Playfair Display", serif;
       background-color: #ddb990; /* Marrón claro suave */
       color: #3b2a1a;
-
     }
     header {
       background: linear-gradient(180deg, #dfa872, #ddb990 80%);
       color: #3b2a1a;
       padding: 3rem 1rem;
       text-align: center;
-
     }
     header h2 {
       font-size: 3rem;
       font-weight: 700;
     }
+
+    /* --- Reducción ligera del espacio entre secciones principales --- */
     .menu-section {
-      padding: 3rem 1rem;
+      padding: 2rem 1rem; /* antes 3rem (reducido ligeramente) */
     }
+    .menu-section + .menu-section {
+      margin-top: 1rem; /* separador adicional pequeño */
+    }
+
     .menu-item {
       padding: 1.5rem 1rem;
     }
@@ -41,8 +46,9 @@
       font-weight: 600;
     }
     .menu-item i {
-      margin-right: 0.5rem;
+      margin-right: 0.75rem;
       color: #8B5E3C;
+      font-size: 1.1rem;
     }
     /* Separador central */
     .menu-row {
@@ -69,7 +75,6 @@
       text-align: center;
       padding: 2rem 1rem;
       margin-top: 2rem;
-
     }
     footer i {
       margin-right: 0.5rem;
@@ -89,11 +94,43 @@
       background: linear-gradient(180deg, #2c2c2c, #3b2a1a);
       color: #f1f1f1;
     }
-
     body.dark-mode .menu-item i,
     body.dark-mode footer i {
       color: #d6a874;
     }
+
+    /* Ajustes para que los textos de subsecciones y menu-items cambien en modo oscuro */
+    body.dark-mode .accordion-button {
+      color: #f1f1f1;
+    }
+    body.dark-mode .accordion-button:not(.collapsed) {
+      color: #f1f1f1;
+      background: rgba(139,94,60,0.06); /* mantiene el mismo ligero destaque pero en contexto oscuro */
+    }
+    /* Iconos en los títulos de la subsección (flechas / bi-*) */
+    body.dark-mode .accordion-button .bi,
+    body.dark-mode .subsection-title .bi {
+      color: #d6a874;
+      filter: none;
+      opacity: 0.95;
+    }
+    body.dark-mode .subsection-title {
+      color: inherit;
+    }
+    /* Textos de los items del menú en modo oscuro */
+    body.dark-mode .menu-item h5,
+    body.dark-mode .menu-item p,
+    body.dark-mode .menu-item h5 span {
+      color: #f1f1f1;
+    }
+
+    /* --- AÑADIDO: hacer visible la flecha (pseudo-elemento ::after) en modo oscuro --- */
+    /* Bootstrap usa una imagen SVG en el ::after; aplicamos un filtro para invertir/iluminarla en dark mode */
+    body.dark-mode .accordion-button::after {
+      filter: invert(1) brightness(1.6);
+      opacity: 0.95;
+    }
+
     .dark-toggle {
       border: none;
       background: transparent;
@@ -102,32 +139,91 @@
       margin-left: 1rem;
       cursor: pointer;
     }
+
+    /* --- Accordion: integrar visualmente con el fondo de la app --- */
+    .accordion {
+      background: transparent;
+      border: none;
+    }
+    .accordion .accordion-item {
+      background: transparent;
+      border: none;
+      box-shadow: none;
+    }
+    /* Botón del accordion: sin fondo blanco ni bordes, parezca parte del layout */
+    .accordion-button {
+      background: transparent;
+      color: #3b2a1a;
+      padding-left: 0;
+      font-weight: 700;
+      border: none;
+      box-shadow: none;
+    }
+    .accordion-button:focus {
+      box-shadow: none;
+      outline: none;
+    }
+    .accordion-button:not(.collapsed) {
+      color: #3b2a1a;
+      background: rgba(139,94,60,0.06); /* leve destaque cuando está abierto */
+      border: none;
+      box-shadow: none;
+    }
+    /* El icono por defecto (flecha) respetará el color */
+    .accordion-button::after {
+      filter: none;
+      opacity: 0.9;
+    }
+    /* Cuerpo del accordion sin fondo — se integra con el fondo del body */
+    .accordion-body {
+      background: transparent;
+      padding-top: 0.5rem; /* pequeño espacio interior para separación */
+    }
+
+    /* Títulos de subsección (icono + texto) */
+    .subsection-title {
+      display:flex;
+      align-items:center;
+      gap:.5rem;
+    }
+
+    /* Ajustes responsive para que no se note un 'bloque' blanco en móvil */
+    @media (max-width: 767px) {
+      .accordion-button {
+        padding-left: 0;
+      }
+    }
   </style>
 </head>
 <body>
 
   <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
-    <div class="container-fluid">
-      <a class="navbar-brand fw-bold" href="#">Cafetería Salnaya</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-        <ul class="navbar-nav">
-          <li class="nav-item"><a class="nav-link" href="#desayuno">Desayuno</a></li>
-          <li class="nav-item"><a class="nav-link" href="#comida">Comida y Aperitivos</a></li>
-          <li class="nav-item"><a class="nav-link" href="#bebidas">Bebidas</a></li>
-          <li class="nav-item"><a class="nav-link" href="#extras">Extras</a></li>
-        </ul>
-        <button class="dark-toggle" id="darkToggle"><i class="bi bi-moon"></i></button>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+      <div class="container-fluid">
+        <a class="navbar-brand fw-bold d-flex align-items-center" href="#">
+      <img src="./resources/img/logoDark.png" alt="Logo" width="40" height="40" class="d-inline-block align-text-top me-2">
+      Cafetería Salnaya
+    </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item"><a class="nav-link" href="#desayuno">Desayuno</a></li>
+            <li class="nav-item"><a class="nav-link" href="#comida">Comida y Aperitivos</a></li>
+            <li class="nav-item"><a class="nav-link" href="#bebidas">Bebidas</a></li>
+            <li class="nav-item"><a class="nav-link" href="#extras">Extras</a></li>
+          </ul>
+          <button class="dark-toggle" id="darkToggle"><i class="bi bi-moon"></i></button>
+        </div>
       </div>
-    </div>
-  </nav>
+    </nav>
 
   <!-- Header principal -->
   <header>
-    <h2>Menú</h2>
+    <img id="logoImg" src="./resources/img/logo.png" class="w-25" alt="logo Salnaya">
+        <h2 class="mt-3">Menú</h2>
+
   </header>
 
   <!-- Secciones del menú -->
@@ -136,14 +232,29 @@
     <!-- Desayuno -->
     <section id="desayuno" class="menu-section">
       <h3 class="mb-4"><strong>Desayuno</strong></h3>
-      <div class="row row-cols-1 row-cols-md-2 g-5 menu-row">
-        <div class="menu-item">
-          <h5><i class="bi bi-cup-hot"></i>Café con tostadas <span>2,50€</span></h5>
-          <p>Tostadas de pan integral con mantequilla y mermelada, acompañado de café.</p>
-        </div>
-        <div class="menu-item">
-          <h5><i class="bi bi-egg-fried"></i>Huevos rancheros <span>5,00€</span></h5>
-          <p>Huevos fritos con salsa de tomate, frijoles y tortillas de maíz.</p>
+
+      <!-- Desayuno como subsección collapsable (icono común: bi-cup-hot) -->
+      <div class="accordion" id="accordionDesayuno">
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingDesayuno">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDesayuno" aria-expanded="false" aria-controls="collapseDesayuno">
+              <span class="subsection-title"><i class="bi bi-cup-hot"></i> Opciones de desayuno</span>
+            </button>
+          </h2>
+          <div id="collapseDesayuno" class="accordion-collapse collapse" aria-labelledby="headingDesayuno" data-bs-parent="#accordionDesayuno">
+            <div class="accordion-body">
+              <div class="row row-cols-1 row-cols-md-2 g-5 menu-row">
+                <div class="menu-item">
+                  <h5><i class="bi bi-cup-hot"></i>Desayuno (Café + bollería) <span>2,00€</span></h5>
+                  <p>Opción de: Napolitana, 3 churros, 2 porras, donut pequeño, croissant o tostadas con tomate.</p>
+                </div>
+                <div class="menu-item">
+                  <h5><i class="bi bi-cup-hot"></i>Tostadas con tomate <span>1,80€</span></h5>
+                  <p>Tostadas recién hechas con tomate natural.</p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -151,14 +262,142 @@
     <!-- Comida y aperitivos -->
     <section id="comida" class="menu-section">
       <h3 class="mb-4"><strong>Comida y Aperitivos</strong></h3>
-      <div class="row row-cols-1 row-cols-md-2 g-5 menu-row">
-        <div class="menu-item">
-          <h5><i class="bi bi-burger"></i>Hamburguesa clásica <span>8,00€</span></h5>
-          <p>Carne de res, queso cheddar, lechuga, tomate y salsa especial.</p>
+
+      <div class="accordion" id="accordionComida">
+        <!-- Bocadillos -->
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingBocadillos">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseBocadillos" aria-expanded="false" aria-controls="collapseBocadillos">
+              <span class="subsection-title"><i class="bi bi-bag"></i> Bocadillos</span>
+            </button>
+          </h2>
+          <div id="collapseBocadillos" class="accordion-collapse collapse" aria-labelledby="headingBocadillos" data-bs-parent="#accordionComida">
+            <div class="accordion-body">
+              <div class="row row-cols-1 row-cols-md-2 g-4 menu-row">
+                <div class="menu-item"><h5><i class="bi bi-bag"></i>Bocadillo de Jamón <span>4,00€</span></h5></div>
+                <div class="menu-item"><h5><i class="bi bi-bag"></i>Bocadillo de Calamares <span>4,50€</span></h5></div>
+                <div class="menu-item"><h5><i class="bi bi-bag"></i>Bocadillo de Lomo <span>4,00€</span></h5></div>
+                <div class="menu-item"><h5><i class="bi bi-bag"></i>Bocadillo de Bacon <span>4,00€</span></h5></div>
+                <div class="menu-item"><h5><i class="bi bi-bag"></i>Bocadillo de Tortilla <span>4,00€</span></h5></div>
+                <div class="menu-item"><h5><i class="bi bi-bag"></i>Bocadillo Catalana <span>4,00€</span></h5></div>
+                <div class="menu-item"><h5><i class="bi bi-bag"></i>Bocadillo de Panceta <span>4,50€</span></h5></div>
+                <div class="menu-item"><h5><i class="bi bi-bag"></i>Bocadillo de Pollo <span>5,00€</span></h5></div>
+                <div class="menu-item"><h5><i class="bi bi-bag"></i>Bocadillo de Ternera <span>5,50€</span></h5></div>
+                <div class="menu-item"><h5><i class="bi bi-bag"></i>Bocadillo de Oreja <span>4,50€</span></h5></div>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="menu-item">
-          <h5><i class="bi bi-tornado"></i>Nachos con queso <span>6,50€</span></h5>
-          <p>Totopos crujientes con queso fundido, guacamole y jalapeños.</p>
+
+        <!-- Montados -->
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingMontados">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseMontados" aria-expanded="false" aria-controls="collapseMontados">
+              <span class="subsection-title"><i class="bi bi-basket"></i> Montados</span>
+            </button>
+          </h2>
+          <div id="collapseMontados" class="accordion-collapse collapse" aria-labelledby="headingMontados" data-bs-parent="#accordionComida">
+            <div class="accordion-body">
+              <div class="row row-cols-1 row-cols-md-2 g-4 menu-row">
+                <div class="menu-item"><h5><i class="bi bi-basket"></i>Montado Jamón <span>2,00€</span></h5></div>
+                <div class="menu-item"><h5><i class="bi bi-basket"></i>Montado Calamares <span>2,00€</span></h5></div>
+                <div class="menu-item"><h5><i class="bi bi-basket"></i>Montado Lomo <span>2,00€</span></h5></div>
+                <div class="menu-item"><h5><i class="bi bi-basket"></i>Montado Bacon <span>2,00€</span></h5></div>
+                <div class="menu-item"><h5><i class="bi bi-basket"></i>Montado Tortilla <span>2,00€</span></h5></div>
+                <div class="menu-item"><h5><i class="bi bi-basket"></i>Montado Catalana <span>2,00€</span></h5></div>
+                <div class="menu-item"><h5><i class="bi bi-basket"></i>Montado Panceta <span>2,25€</span></h5></div>
+                <div class="menu-item"><h5><i class="bi bi-basket"></i>Montado Pollo <span>2,50€</span></h5></div>
+                <div class="menu-item"><h5><i class="bi bi-basket"></i>Montado Matrimonio <span>2,25€</span></h5></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Especiales y Raciones -->
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingEspeciales">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEspeciales" aria-expanded="false" aria-controls="collapseEspeciales">
+              <span class="subsection-title"><i class="bi bi-star"></i> Especiales y Raciones</span>
+            </button>
+          </h2>
+          <div id="collapseEspeciales" class="accordion-collapse collapse" aria-labelledby="headingEspeciales" data-bs-parent="#accordionComida">
+            <div class="accordion-body">
+              <div class="row row-cols-1 row-cols-md-2 g-4 menu-row">
+                <div class="menu-item">
+                  <h5><i class="bi bi-star"></i>Bocadillo XXL (pollo o bacon) + mini tinto/cerveza <span>15,00€</span></h5>
+                  <p>Gran bocadillo servido con un vaso mini de tinto de verano o mini de cerveza.</p>
+                </div>
+                <div class="menu-item"><h5><i class="bi bi-star"></i>Bandeja de pollo <span>12,00€ / 24,00€</span></h5></div>
+                <div class="menu-item"><h5><i class="bi bi-star"></i>Durum Normal <span>5,00€</span></h5></div>
+                <div class="menu-item"><h5><i class="bi bi-star"></i>Durum XXL <span>8,50€</span></h5></div>
+                <div class="menu-item"><h5><i class="bi bi-star"></i>Alitas (Ración) <span>6,00€</span></h5></div>
+                <div class="menu-item"><h5><i class="bi bi-star"></i>Huevos rotos con jamón <span>6,00€</span></h5></div>
+                <div class="menu-item"><h5><i class="bi bi-star"></i>Croquetas de jamón (ración) <span>6,00€</span></h5></div>
+                <div class="menu-item"><h5><i class="bi bi-star"></i>Croquetas de kebab (ración) <span>8,00€</span></h5></div>
+                <div class="menu-item"><h5><i class="bi bi-star"></i>Patatas (ración) <span>2,80€</span></h5></div>
+                <div class="menu-item"><h5><i class="bi bi-star"></i>Calamares (ración) <span>8,00€</span></h5></div>
+                <div class="menu-item"><h5><i class="bi bi-star"></i>Nuggets (ración) <span>6,00€</span></h5></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hamburguesas y Sándwiches -->
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingHamburguesas">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseHamburguesas" aria-expanded="false" aria-controls="collapseHamburguesas">
+              <span class="subsection-title"><i class="bi bi-burger"></i> Hamburguesas y Sándwiches</span>
+            </button>
+          </h2>
+          <div id="collapseHamburguesas" class="accordion-collapse collapse" aria-labelledby="headingHamburguesas" data-bs-parent="#accordionComida">
+            <div class="accordion-body">
+              <div class="row row-cols-1 row-cols-md-2 g-4 menu-row">
+                <div class="menu-item"><h5><i class="bi bi-burger"></i>Hamburguesa especial (carne casera) <span>5,00€</span></h5></div>
+                <div class="menu-item"><h5><i class="bi bi-burger"></i>Hamburguesa normal (carne casera) <span>4,00€</span></h5></div>
+                <div class="menu-item"><h5><i class="bi bi-burger"></i>Hamburguesa de pollo <span>5,00€</span></h5></div>
+                <div class="menu-item"><h5><i class="bi bi-burger"></i>Hamburguesa gourmet casera <span>6,50€</span></h5></div>
+                <div class="menu-item"><h5><i class="bi bi-burger"></i>Hamburguesa vegetariana <span>5,00€</span></h5></div>
+                <div class="menu-item"><h5><i class="bi bi-burger"></i>Sándwich normal <span>3,00€</span></h5></div>
+                <div class="menu-item"><h5><i class="bi bi-burger"></i>Sándwich especial <span>4,00€</span></h5></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Platos combinados -->
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingPlatos">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePlatos" aria-expanded="false" aria-controls="collapsePlatos">
+              <span class="subsection-title"><i class="bi bi-collection"></i> Platos combinados</span>
+            </button>
+          </h2>
+          <div id="collapsePlatos" class="accordion-collapse collapse" aria-labelledby="headingPlatos" data-bs-parent="#accordionComida">
+            <div class="accordion-body">
+              <div class="row row-cols-1 row-cols-md-2 g-4 menu-row">
+                <div class="menu-item"><h5><i class="bi bi-collection"></i>Combinado (Pollo) <span>6,00€</span></h5></div>
+                <div class="menu-item"><h5><i class="bi bi-collection"></i>Combinado (Ternera) <span>6,00€</span></h5></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Otros -->
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingOtrosComida">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOtrosComida" aria-expanded="false" aria-controls="collapseOtrosComida">
+              <span class="subsection-title"><i class="bi bi-three-dots"></i> Otros</span>
+            </button>
+          </h2>
+          <div id="collapseOtrosComida" class="accordion-collapse collapse" aria-labelledby="headingOtrosComida" data-bs-parent="#accordionComida">
+            <div class="accordion-body">
+              <div class="row row-cols-1 row-cols-md-2 g-4 menu-row">
+                <div class="menu-item"><h5><i class="bi bi-three-dots"></i>Quesadillas <span>2,50€</span></h5></div>
+                <div class="menu-item"><h5><i class="bi bi-three-dots"></i>Hot Dog <span>2,50€</span></h5></div>
+                <div class="menu-item"><h5><i class="bi bi-three-dots"></i>Salchipapas <span>4,50€</span></h5></div>
+                <div class="menu-item"><h5><i class="bi bi-three-dots"></i>Salchipollo <span>5,00€</span></h5></div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -166,14 +405,47 @@
     <!-- Bebidas -->
     <section id="bebidas" class="menu-section">
       <h3 class="mb-4"><strong>Bebidas</strong></h3>
-      <div class="row row-cols-1 row-cols-md-2 g-5 menu-row">
-        <div class="menu-item">
-          <h5><i class="bi bi-cup-straw"></i>Cerveza artesanal <span>4,00€</span></h5>
-          <p>Cerveza local elaborada artesanalmente, sabor suave y refrescante.</p>
-        </div>
-        <div class="menu-item">
-          <h5><i class="bi bi-cup"></i>Mojito <span>5,50€</span></h5>
-          <p>Ron, hierbabuena, lima, azúcar y soda.</p>
+
+      <!-- Bebidas subsección collapsable (icono común: bi-cup-straw) -->
+      <div class="accordion" id="accordionBebidas">
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingBebidas">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseBebidas" aria-expanded="false" aria-controls="collapseBebidas">
+              <span class="subsection-title"><i class="bi bi-cup-straw"></i> Bebidas</span>
+            </button>
+          </h2>
+          <div id="collapseBebidas" class="accordion-collapse collapse" aria-labelledby="headingBebidas" data-bs-parent="#accordionBebidas">
+            <div class="accordion-body">
+              <div class="row row-cols-1 row-cols-md-2 g-4 menu-row">
+                <div class="menu-item"><h5><i class="bi bi-cup-straw"></i>Refrescos <span>1,60€</span></h5></div>
+                <div class="menu-item"><h5><i class="bi bi-cup-straw"></i>Café con leche (normal) <span>1,20€</span></h5></div>
+                <div class="menu-item"><h5><i class="bi bi-cup-straw"></i>Café con leche (soja/almendras) <span>1,30€</span></h5></div>
+                <div class="menu-item"><h5><i class="bi bi-cup-straw"></i>Té normal <span>1,20€</span></h5></div>
+                <div class="menu-item"><h5><i class="bi bi-cup-straw"></i>Té especial <span>1,30€</span></h5></div>
+                <div class="menu-item"><h5><i class="bi bi-cup-straw"></i>Monster <span>2,15€</span></h5></div>
+                <div class="menu-item"><h5><i class="bi bi-cup-straw"></i>Batido de chocolate (pequeño) <span>1,80€</span></h5></div>
+                <div class="menu-item"><h5><i class="bi bi-cup-straw"></i>Batidos 500ml <span>3,00€</span></h5></div>
+                <div class="menu-item"><h5><i class="bi bi-cup-straw"></i>Batidos 1000ml <span>5,50€</span></h5></div>
+
+                <div class="menu-item"><h5><i class="bi bi-cup-straw"></i>Caña / Tercio Aguila <span>1,60€</span></h5></div>
+                <div class="menu-item"><h5><i class="bi bi-cup-straw"></i>Cerveza jarra fría <span>2,00€</span></h5></div>
+                <div class="menu-item"><h5><i class="bi bi-cup-straw"></i>Cerveza Corona <span>1,25€</span></h5></div>
+                <div class="menu-item"><h5><i class="bi bi-cup-straw"></i>Desperados Mojito (lata) <span>1,50€</span></h5></div>
+
+                <div class="menu-item"><h5><i class="bi bi-cup-straw"></i>Mini de cerveza <span>4,00€</span></h5></div>
+                <div class="menu-item"><h5><i class="bi bi-cup-straw"></i>Mini de Sánchez <span>4,00€</span></h5></div>
+                <div class="menu-item"><h5><i class="bi bi-cup-straw"></i>Mini de tinto de verano <span>3,50€</span></h5></div>
+
+                <div class="menu-item"><h5><i class="bi bi-cup-straw"></i>Agua pequeña <span>1,20€</span></h5></div>
+                <div class="menu-item"><h5><i class="bi bi-cup-straw"></i>Agua grande <span>2,00€</span></h5></div>
+                <div class="menu-item"><h5><i class="bi bi-cup-straw"></i>Zumos de bote <span>1,60€</span></h5></div>
+
+                <div class="menu-item"><h5><i class="bi bi-cup-straw"></i>Licor de hierbas <span>1,50€</span></h5></div>
+                <div class="menu-item"><h5><i class="bi bi-cup-straw"></i>Crema de orujo <span>1,50€</span></h5></div>
+                <div class="menu-item"><h5><i class="bi bi-cup-straw"></i>Mojito <span>5,00€</span></h5></div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -181,15 +453,56 @@
     <!-- Extras -->
     <section id="extras" class="menu-section">
       <h3 class="mb-4"><strong>Extras</strong></h3>
-      <div class="row row-cols-1 row-cols-md-2 g-5 menu-row">
-        <div class="menu-item">
-          <h5><i class="bi bi-basket"></i>Papas fritas <span>3,00€</span></h5>
-          <p>Papas fritas doradas y crujientes.</p>
+
+      <div class="accordion" id="accordionExtras">
+        <!-- Bollería -->
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingBolleria">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseBolleria" aria-expanded="false" aria-controls="collapseBolleria">
+              <span class="subsection-title"><i class="bi bi-bread-slice"></i> Bollería</span>
+            </button>
+          </h2>
+          <div id="collapseBolleria" class="accordion-collapse collapse" aria-labelledby="headingBolleria" data-bs-parent="#accordionExtras">
+            <div class="accordion-body">
+              <div class="row row-cols-1 row-cols-md-2 g-4 menu-row">
+                <div class="menu-item"><h5><i class="bi bi-bread-slice"></i>Donut pequeña <span>1,10€</span></h5></div>
+                <div class="menu-item"><h5><i class="bi bi-bread-slice"></i>Donut grande <span>1,50€</span></h5></div>
+                <div class="menu-item"><h5><i class="bi bi-bread-slice"></i>Croissant normal <span>1,20€</span></h5></div>
+                <div class="menu-item"><h5><i class="bi bi-bread-slice"></i>Croissant chocolate <span>1,50€</span></h5></div>
+                <div class="menu-item"><h5><i class="bi bi-bread-slice"></i>Porra <span>0,70€</span></h5></div>
+                <div class="menu-item"><h5><i class="bi bi-bread-slice"></i>Churro <span>0,40€</span></h5></div>
+                <div class="menu-item"><h5><i class="bi bi-bread-slice"></i>Napolitana chocolate <span>1,10€</span></h5></div>
+                <div class="menu-item"><h5><i class="bi bi-bread-slice"></i>Croissant jamón y queso <span>1,50€</span></h5></div>
+                <div class="menu-item"><h5><i class="bi bi-bread-slice"></i>Napolitana jamón y queso <span>1,50€</span></h5></div>
+                <div class="menu-item"><h5><i class="bi bi-bread-slice"></i>Torrijas <span>1,50€</span></h5></div>
+                <div class="menu-item"><h5><i class="bi bi-bread-slice"></i>Palmeras <span>1,50€</span></h5></div>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="menu-item">
-          <h5><i class="bi bi-bread-slice"></i>Pan de ajo <span>2,50€</span></h5>
-          <p>Pan tostado con mantequilla de ajo y perejil.</p>
+
+        <!-- Snacks y Helados -->
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingSnacks">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSnacks" aria-expanded="false" aria-controls="collapseSnacks">
+              <span class="subsection-title"><i class="bi bi-ice-cream"></i> Snacks y Helados</span>
+            </button>
+          </h2>
+          <div id="collapseSnacks" class="accordion-collapse collapse" aria-labelledby="headingSnacks" data-bs-parent="#accordionExtras">
+            <div class="accordion-body">
+              <div class="row row-cols-1 row-cols-md-2 g-4 menu-row">
+                <div class="menu-item"><h5><i class="bi bi-ice-cream"></i>Bolsas de patatas <span>1,50€</span></h5></div>
+                <div class="menu-item"><h5><i class="bi bi-ice-cream"></i>Bolsas de chuches <span>1,30€</span></h5></div>
+                <div class="menu-item"><h5><i class="bi bi-ice-cream"></i>Chocolatinas <span>1,30€</span></h5></div>
+
+                <div class="menu-item"><h5><i class="bi bi-ice-cream"></i>Helado 1 bola <span>1,50€</span></h5></div>
+                <div class="menu-item"><h5><i class="bi bi-ice-cream"></i>Helado 2 bolas <span>3,00€</span></h5></div>
+                <div class="menu-item"><h5><i class="bi bi-ice-cream"></i>Sandwich helado <span>2,00€</span></h5></div>
+              </div>
+            </div>
+          </div>
         </div>
+
       </div>
     </section>
 
@@ -199,20 +512,38 @@
   <footer>
     <p><i class="bi bi-clock"></i><strong>Horario:</strong> Lunes a Domingo, 8:00 - 20:00</p>
     <p><i class="bi bi-geo-alt"></i><strong>Ubicación:</strong> Calle del Prof. José García Santesmases, 9, Moncloa</p>
+    <p class="mt-2"><small>Menú actualizado según "CARTA PRECIOS CAFETERIA ULTIMATEE".</small></p>
   </footer>
 
   <!-- Bootstrap 5 JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script>
-    // Toggle Dark Mode
+    // Toggle Dark Mode + swap logo dynamically
     const toggleBtn = document.getElementById('darkToggle');
+    const logoImg = document.getElementById('logoImg');
+    const LIGHT_LOGO = './resources/img/logo.png';
+    const DARK_LOGO = './resources/img/logoDark.png';
+
+    // Ensure logo matches initial mode (in case body already has dark-mode)
+    document.addEventListener('DOMContentLoaded', () => {
+      if (document.body.classList.contains('dark-mode')) {
+        logoImg.src = DARK_LOGO;
+        const icon = toggleBtn.querySelector('i');
+        if (icon) icon.classList.replace('bi-moon', 'bi-sun');
+      } else {
+        logoImg.src = LIGHT_LOGO;
+      }
+    });
+
     toggleBtn.addEventListener('click', () => {
       document.body.classList.toggle('dark-mode');
       const icon = toggleBtn.querySelector('i');
       if (document.body.classList.contains('dark-mode')) {
         icon.classList.replace('bi-moon', 'bi-sun');
+        logoImg.src = DARK_LOGO;
       } else {
         icon.classList.replace('bi-sun', 'bi-moon');
+        logoImg.src = LIGHT_LOGO;
       }
     });
   </script>
