@@ -1,48 +1,52 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Cafetería Salnaya | Menú</title>
-  <link rel="icon" href="./resources/img/logoFondo.png">
+  <link rel="icon" href="./resources/img/LogoW.webp">
   <!-- Bootstrap 5 CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- Bootstrap Icons -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&display=swap" rel="stylesheet">
   <!--CSS-->
-    <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css">
 
 </head>
+
 <body>
 
   <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
-      <div class="container-fluid">
-        <a class="navbar-brand fw-bold d-flex align-items-center" href="#">
-      <img src="./resources/img/logoDark.png" alt="Logo" width="40" height="40" class="d-inline-block align-text-top me-2">
-      Cafetería Salnaya
-    </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-          <ul class="navbar-nav">
-            <li class="nav-item"><a class="nav-link" href="#desayuno">Desayuno</a></li>
-            <li class="nav-item"><a class="nav-link" href="#comida">Comida y Aperitivos</a></li>
-            <li class="nav-item"><a class="nav-link" href="#bebidas">Bebidas</a></li>
-            <li class="nav-item"><a class="nav-link" href="#extras">Extras</a></li>
-          </ul>
-          <button class="dark-toggle" id="darkToggle"><i class="bi bi-moon"></i></button>
-        </div>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+    <div class="container-fluid">
+      <a class="navbar-brand fw-bold d-flex align-items-center" href="#">
+        <img src="./resources/img/LogoW.webp" alt="Logo" width="40" height="40"
+          class="d-inline-block align-text-top me-2">
+        Cafetería Salnaya
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link" href="#desayuno">Desayuno</a></li>
+          <li class="nav-item"><a class="nav-link" href="#comida">Comida y Aperitivos</a></li>
+          <li class="nav-item"><a class="nav-link" href="#bebidas">Bebidas</a></li>
+          <li class="nav-item"><a class="nav-link" href="#extras">Extras</a></li>
+          <li> <button class="dark-toggle nav-item" id="darkToggle"><i class="nav-link bi bi-moon"></i></button>
+          </li>
+        </ul>
       </div>
-    </nav>
+    </div>
+  </nav>
 
   <!-- Header principal -->
   <header>
-    <img id="logoImg" src="./resources/img/logo.png" class="w-25" alt="logo Salnaya">
-        <h2 class="mt-3">Menú</h2>
+    <img id="logoImg" src="./resources/img/logo.webp" class="w-25" alt="logo Salnaya">
+    <h2 class="mt-3">Menú</h2>
 
   </header>
 
@@ -52,307 +56,25 @@
     <!-- Desayuno -->
     <section id="desayuno" class="menu-section">
       <h3 class="mb-4"><strong>Desayuno</strong></h3>
-
-      <!-- Desayuno como subsección collapsable (icono común: bi-cup-hot) -->
-      <div class="accordion" id="accordionDesayuno">
-        <div class="accordion-item">
-          <h2 class="accordion-header" id="headingDesayuno">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDesayuno" aria-expanded="false" aria-controls="collapseDesayuno">
-              <span class="subsection-title"><i class="bi bi-cup-hot"></i> Opciones de desayuno</span>
-            </button>
-          </h2>
-          <div id="collapseDesayuno" class="accordion-collapse collapse" aria-labelledby="headingDesayuno" data-bs-parent="#accordionDesayuno">
-            <div class="accordion-body">
-              <div class="row row-cols-1 row-cols-md-2 g-5 menu-row">
-                <div class="menu-item">
-                  <h5><i class="bi bi-cup-hot"></i>Desayuno (Café + bollería) <span>2,00€</span></h5>
-                  <p>Opción de: Napolitana, 3 churros, 2 porras, donut pequeño, croissant o tostadas con tomate.</p>
-                </div>
-                <div class="menu-item">
-                  <h5><i class="bi bi-cup-hot"></i>Tostadas con tomate <span>1,80€</span></h5>
-                  <p>Tostadas recién hechas con tomate natural.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Bollería -->
-        <div class="accordion-item">
-          <h2 class="accordion-header" id="headingBolleria">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseBolleria" aria-expanded="false" aria-controls="collapseBolleria">
-              <span class="subsection-title"><i class="bi bi-cake"></i> Bollería</span>
-            </button>
-          </h2>
-          <div id="collapseBolleria" class="accordion-collapse collapse" aria-labelledby="headingBolleria" data-bs-parent="#accordionExtras">
-            <div class="accordion-body">
-              <div class="row row-cols-1 row-cols-md-2 g-4 menu-row">
-                <div class="menu-item"><h5><i class="bi bi-cake"></i>Donut pequeña <span>1,10€</span></h5></div>
-                <div class="menu-item"><h5><i class="bi bi-cake"></i>Donut grande <span>1,50€</span></h5></div>
-                <div class="menu-item"><h5><i class="bi bi-cake"></i>Croissant normal <span>1,20€</span></h5></div>
-                <div class="menu-item"><h5><i class="bi bi-cake"></i>Croissant chocolate <span>1,50€</span></h5></div>
-                <div class="menu-item"><h5><i class="bi bi-cake"></i>Porra <span>0,70€</span></h5></div>
-                <div class="menu-item"><h5><i class="bi bi-cake"></i>Churro <span>0,40€</span></h5></div>
-                <div class="menu-item"><h5><i class="bi bi-cake"></i>Napolitana chocolate <span>1,10€</span></h5></div>
-                <div class="menu-item"><h5><i class="bi bi-cake"></i>Croissant jamón y queso <span>1,50€</span></h5></div>
-                <div class="menu-item"><h5><i class="bi bi-cake"></i>Napolitana jamón y queso <span>1,50€</span></h5></div>
-                <div class="menu-item"><h5><i class="bi bi-cake"></i>Torrijas <span>1,50€</span></h5></div>
-                <div class="menu-item"><h5><i class="bi bi-cake"></i>Palmeras <span>1,50€</span></h5></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <div id="desayuno-content"></div>
     </section>
 
     <!-- Comida y aperitivos -->
     <section id="comida" class="menu-section">
       <h3 class="mb-4"><strong>Comida y Aperitivos</strong></h3>
-
-      <div class="accordion" id="accordionComida">
-        <!-- Bocadillos -->
-        <div class="accordion-item">
-          <h2 class="accordion-header" id="headingBocadillos">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseBocadillos" aria-expanded="false" aria-controls="collapseBocadillos">
-              <span class="subsection-title"><i class="bi bi-bag"></i> Bocadillos</span>
-            </button>
-          </h2>
-          <div id="collapseBocadillos" class="accordion-collapse collapse" aria-labelledby="headingBocadillos" data-bs-parent="#accordionComida">
-            <div class="accordion-body">
-              <div class="row row-cols-1 row-cols-md-2 g-4 menu-row">
-                <div class="menu-item"><h5><i class="bi bi-bag"></i>Bocadillo de Jamón <span>4,00€</span></h5></div>
-                <div class="menu-item"><h5><i class="bi bi-bag"></i>Bocadillo de Calamares <span>4,50€</span></h5></div>
-                <div class="menu-item"><h5><i class="bi bi-bag"></i>Bocadillo de Lomo <span>4,00€</span></h5></div>
-                <div class="menu-item"><h5><i class="bi bi-bag"></i>Bocadillo de Bacon <span>4,00€</span></h5></div>
-                <div class="menu-item"><h5><i class="bi bi-bag"></i>Bocadillo de Tortilla <span>4,00€</span></h5></div>
-                <div class="menu-item"><h5><i class="bi bi-bag"></i>Bocadillo Catalana <span>4,00€</span></h5></div>
-                <div class="menu-item"><h5><i class="bi bi-bag"></i>Bocadillo de Panceta <span>4,50€</span></h5></div>
-                <div class="menu-item"><h5><i class="bi bi-bag"></i>Bocadillo de Pollo <span>5,00€</span></h5></div>
-                <div class="menu-item"><h5><i class="bi bi-bag"></i>Bocadillo de Ternera <span>5,50€</span></h5></div>
-                <div class="menu-item"><h5><i class="bi bi-bag"></i>Bocadillo de Oreja <span>4,50€</span></h5></div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Montados -->
-        <div class="accordion-item">
-          <h2 class="accordion-header" id="headingMontados">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseMontados" aria-expanded="false" aria-controls="collapseMontados">
-              <span class="subsection-title"><i class="bi bi-basket"></i> Montados</span>
-            </button>
-          </h2>
-          <div id="collapseMontados" class="accordion-collapse collapse" aria-labelledby="headingMontados" data-bs-parent="#accordionComida">
-            <div class="accordion-body">
-              <div class="row row-cols-1 row-cols-md-2 g-4 menu-row">
-                <div class="menu-item"><h5><i class="bi bi-basket"></i>Montado Jamón <span>2,00€</span></h5></div>
-                <div class="menu-item"><h5><i class="bi bi-basket"></i>Montado Calamares <span>2,00€</span></h5></div>
-                <div class="menu-item"><h5><i class="bi bi-basket"></i>Montado Lomo <span>2,00€</span></h5></div>
-                <div class="menu-item"><h5><i class="bi bi-basket"></i>Montado Bacon <span>2,00€</span></h5></div>
-                <div class="menu-item"><h5><i class="bi bi-basket"></i>Montado Tortilla <span>2,00€</span></h5></div>
-                <div class="menu-item"><h5><i class="bi bi-basket"></i>Montado Catalana <span>2,00€</span></h5></div>
-                <div class="menu-item"><h5><i class="bi bi-basket"></i>Montado Panceta <span>2,25€</span></h5></div>
-                <div class="menu-item"><h5><i class="bi bi-basket"></i>Montado Pollo <span>2,50€</span></h5></div>
-                <div class="menu-item"><h5><i class="bi bi-basket"></i>Montado Matrimonio <span>2,25€</span></h5></div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Especiales y Raciones -->
-        <div class="accordion-item">
-          <h2 class="accordion-header" id="headingEspeciales">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEspeciales" aria-expanded="false" aria-controls="collapseEspeciales">
-              <span class="subsection-title"><i class="bi bi-star"></i> Especiales y Raciones</span>
-            </button>
-          </h2>
-          <div id="collapseEspeciales" class="accordion-collapse collapse" aria-labelledby="headingEspeciales" data-bs-parent="#accordionComida">
-            <div class="accordion-body">
-              <div class="row row-cols-1 row-cols-md-2 g-4 menu-row">
-                <div class="menu-item"><h5><i class="bi bi-star"></i>Quesadillas <span>2,50€</span></h5></div>
-                <div class="menu-item"><h5><i class="bi bi-star"></i>Hot Dog <span>2,50€</span></h5></div>
-                <div class="menu-item"><h5><i class="bi bi-star"></i>Salchipapas <span>4,50€</span></h5></div>
-                <div class="menu-item"><h5><i class="bi bi-star"></i>Salchipollo <span>5,00€</span></h5></div>
-                <div class="menu-item"><h5><i class="bi bi-star"></i>Bandeja de pollo <span>12,00€ / 24,00€</span></h5></div>
-                <div class="menu-item"><h5><i class="bi bi-star"></i>Durum Normal <span>5,00€</span></h5></div>
-                <div class="menu-item"><h5><i class="bi bi-star"></i>Durum XXL <span>8,50€</span></h5></div>
-                <div class="menu-item"><h5><i class="bi bi-star"></i>Alitas (Ración) <span>6,00€</span></h5></div>
-                <div class="menu-item"><h5><i class="bi bi-star"></i>Huevos rotos con jamón <span>6,00€</span></h5></div>
-                <div class="menu-item"><h5><i class="bi bi-star"></i>Croquetas de jamón (ración) <span>6,00€</span></h5></div>
-                <div class="menu-item"><h5><i class="bi bi-star"></i>Croquetas de kebab (ración) <span>8,00€</span></h5></div>
-                <div class="menu-item"><h5><i class="bi bi-star"></i>Patatas (ración) <span>2,80€</span></h5></div>
-                <div class="menu-item"><h5><i class="bi bi-star"></i>Calamares (ración) <span>8,00€</span></h5></div>
-                <div class="menu-item"><h5><i class="bi bi-star"></i>Nuggets (ración) <span>6,00€</span></h5></div>
-                <div class="menu-item"><h5><i class="bi bi-star"></i>Bocadillo XXL (pollo o bacon) + mini tinto/cerveza <span>15,00€</span></h5></div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Hamburguesas y Sándwiches -->
-        <div class="accordion-item">
-          <h2 class="accordion-header" id="headingHamburguesas">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseHamburguesas" aria-expanded="false" aria-controls="collapseHamburguesas">
-              <span class="subsection-title"><i class="bi bi-database"></i> Hamburguesas y Sándwiches</span>
-            </button>
-          </h2>
-          <div id="collapseHamburguesas" class="accordion-collapse collapse" aria-labelledby="headingHamburguesas" data-bs-parent="#accordionComida">
-            <div class="accordion-body">
-              <div class="row row-cols-1 row-cols-md-2 g-4 menu-row">
-                <div class="menu-item"><h5><i class="bi bi-database"></i>Hamburguesa especial (carne casera) <span>5,00€</span></h5></div>
-                <div class="menu-item"><h5><i class="bi bi-database"></i>Hamburguesa normal (carne casera) <span>4,00€</span></h5></div>
-                <div class="menu-item"><h5><i class="bi bi-database"></i>Hamburguesa de pollo <span>5,00€</span></h5></div>
-                <div class="menu-item"><h5><i class="bi bi-database"></i>Hamburguesa gourmet casera <span>6,50€</span></h5></div>
-                <div class="menu-item"><h5><i class="bi bi-database"></i>Hamburguesa vegetariana <span>5,00€</span></h5></div>
-                <div class="menu-item"><h5><i class="bi bi-database"></i>Sándwich normal <span>3,00€</span></h5></div>
-                <div class="menu-item"><h5><i class="bi bi-database"></i>Sándwich especial <span>4,00€</span></h5></div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Platos combinados -->
-        <div class="accordion-item">
-          <h2 class="accordion-header" id="headingPlatos">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePlatos" aria-expanded="false" aria-controls="collapsePlatos">
-              <span class="subsection-title"><i class="bi bi-collection"></i> Platos combinados</span>
-            </button>
-          </h2>
-          <div id="collapsePlatos" class="accordion-collapse collapse" aria-labelledby="headingPlatos" data-bs-parent="#accordionComida">
-            <div class="accordion-body">
-              <div class="row row-cols-1 row-cols-md-2 g-4 menu-row">
-                <div class="menu-item"><h5><i class="bi bi-collection"></i>Combinado (Pollo) <span>6,00€</span></h5></div>
-                <div class="menu-item"><h5><i class="bi bi-collection"></i>Combinado (Ternera) <span>6,00€</span></h5></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <div id="comida-content"></div>
     </section>
 
     <!-- Bebidas -->
-<section id="bebidas" class="menu-section">
-  <h3 class="mb-4"><strong>Bebidas</strong></h3>
-
-  <!-- Bebidas subsecciones -->
-  <div class="accordion" id="accordionBebidas">
-
-    <!-- Bebidas frías -->
-    <div class="accordion-item">
-      <h2 class="accordion-header" id="headingFrias">
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFrias" aria-expanded="false" aria-controls="collapseFrias">
-          <span class="subsection-title"><i class="bi bi-cup-straw"></i> Bebidas frías</span>
-        </button>
-      </h2>
-      <div id="collapseFrias" class="accordion-collapse collapse" aria-labelledby="headingFrias" data-bs-parent="#accordionBebidas">
-        <div class="accordion-body">
-          <div class="row row-cols-1 row-cols-md-2 g-4 menu-row">
-            <div class="menu-item"><h5><i class="bi bi-cup-straw"></i>Refrescos <span>1,60€</span></h5></div>
-            <div class="menu-item"><h5><i class="bi bi-cup-straw"></i>Monster <span>2,15€</span></h5></div>
-            <div class="menu-item"><h5><i class="bi bi-cup-straw"></i>Agua pequeña <span>1,20€</span></h5></div>
-            <div class="menu-item"><h5><i class="bi bi-cup-straw"></i>Agua grande <span>2,00€</span></h5></div>
-            <div class="menu-item"><h5><i class="bi bi-cup-straw"></i>Zumos de bote <span>1,60€</span></h5></div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Bebidas calientes -->
-    <div class="accordion-item">
-      <h2 class="accordion-header" id="headingCalientes">
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCalientes" aria-expanded="false" aria-controls="collapseCalientes">
-          <span class="subsection-title"><i class="bi bi-cup-straw"></i> Bebidas calientes</span>
-        </button>
-      </h2>
-      <div id="collapseCalientes" class="accordion-collapse collapse" aria-labelledby="headingCalientes" data-bs-parent="#accordionBebidas">
-        <div class="accordion-body">
-          <div class="row row-cols-1 row-cols-md-2 g-4 menu-row">
-            <div class="menu-item"><h5><i class="bi bi-cup-straw"></i>Café con leche (normal) <span>1,20€</span></h5></div>
-            <div class="menu-item"><h5><i class="bi bi-cup-straw"></i>Café con leche (soja/almendras) <span>1,30€</span></h5></div>
-            <div class="menu-item"><h5><i class="bi bi-cup-straw"></i>Té normal <span>1,20€</span></h5></div>
-            <div class="menu-item"><h5><i class="bi bi-cup-straw"></i>Té especial <span>1,30€</span></h5></div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Bebidas alcohólicas -->
-    <div class="accordion-item">
-      <h2 class="accordion-header" id="headingAlcoholicas">
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseAlcoholicas" aria-expanded="false" aria-controls="collapseAlcoholicas">
-          <span class="subsection-title"><i class="bi bi-cup-straw"></i> Bebidas alcohólicas</span>
-        </button>
-      </h2>
-      <div id="collapseAlcoholicas" class="accordion-collapse collapse" aria-labelledby="headingAlcoholicas" data-bs-parent="#accordionBebidas">
-        <div class="accordion-body">
-          <div class="row row-cols-1 row-cols-md-2 g-4 menu-row">
-            <div class="menu-item"><h5><i class="bi bi-cup-straw"></i>Caña / Tercio Aguila <span>1,60€</span></h5></div>
-            <div class="menu-item"><h5><i class="bi bi-cup-straw"></i>Cerveza jarra fría <span>2,00€</span></h5></div>
-            <div class="menu-item"><h5><i class="bi bi-cup-straw"></i>Cerveza Corona <span>1,25€</span></h5></div>
-            <div class="menu-item"><h5><i class="bi bi-cup-straw"></i>Desperados Mojito (lata) <span>1,50€</span></h5></div>
-            <div class="menu-item"><h5><i class="bi bi-cup-straw"></i>Mini de cerveza <span>4,00€</span></h5></div>
-            <div class="menu-item"><h5><i class="bi bi-cup-straw"></i>Mini de Sánchez <span>4,00€</span></h5></div>
-            <div class="menu-item"><h5><i class="bi bi-cup-straw"></i>Mini de tinto de verano <span>3,50€</span></h5></div>
-            <div class="menu-item"><h5><i class="bi bi-cup-straw"></i>Licor de hierbas <span>1,50€</span></h5></div>
-            <div class="menu-item"><h5><i class="bi bi-cup-straw"></i>Crema de orujo <span>1,50€</span></h5></div>
-            <div class="menu-item"><h5><i class="bi bi-cup-straw"></i>Mojito <span>5,00€</span></h5></div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Batidos -->
-    <div class="accordion-item">
-      <h2 class="accordion-header" id="headingBatidos">
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseBatidos" aria-expanded="false" aria-controls="collapseBatidos">
-          <span class="subsection-title"><i class="bi bi-cup-straw"></i> Batidos</span>
-        </button>
-      </h2>
-      <div id="collapseBatidos" class="accordion-collapse collapse" aria-labelledby="headingBatidos" data-bs-parent="#accordionBebidas">
-        <div class="accordion-body">
-          <div class="row row-cols-1 row-cols-md-2 g-4 menu-row">
-            <div class="menu-item"><h5><i class="bi bi-cup-straw"></i>Batido de chocolate (pequeño) <span>1,80€</span></h5></div>
-            <div class="menu-item"><h5><i class="bi bi-cup-straw"></i>Batidos 500ml <span>3,00€</span></h5></div>
-            <div class="menu-item"><h5><i class="bi bi-cup-straw"></i>Batidos 1000ml <span>5,50€</span></h5></div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
+    <section id="bebidas" class="menu-section">
+      <h3 class="mb-4"><strong>Bebidas</strong></h3>
+      <div id="bebidas-content"></div>
+    </section>
 
     <!-- Extras -->
     <section id="extras" class="menu-section">
       <h3 class="mb-4"><strong>Extras</strong></h3>
-
-      <div class="accordion" id="accordionExtras">
-        
-
-        <!-- Snacks y Helados -->
-        <div class="accordion-item">
-          <h2 class="accordion-header" id="headingSnacks">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSnacks" aria-expanded="false" aria-controls="collapseSnacks">
-              <span class="subsection-title"><i class="bi bi-snow"></i> Snacks y Helados</span>
-            </button>
-          </h2>
-          <div id="collapseSnacks" class="accordion-collapse collapse" aria-labelledby="headingSnacks" data-bs-parent="#accordionExtras">
-            <div class="accordion-body">
-              <div class="row row-cols-1 row-cols-md-2 g-4 menu-row">
-                <div class="menu-item"><h5><i class="bi bi-basket"></i>Bolsas de patatas <span>1,50€</span></h5></div>
-                <div class="menu-item"><h5><i class="bi bi-basket"></i>Bolsas de chuches <span>1,30€</span></h5></div>
-                <div class="menu-item"><h5><i class="bi bi-basket"></i>Chocolatinas <span>1,30€</span></h5></div>
-
-                <div class="menu-item"><h5><i class="bi bi-snow"></i>Helado 1 bola <span>1,50€</span></h5></div>
-                <div class="menu-item"><h5><i class="bi bi-snow"></i>Helado 2 bolas <span>3,00€</span></h5></div>
-                <div class="menu-item"><h5><i class="bi bi-snow"></i>Sandwich helado <span>2,00€</span></h5></div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
+      <div id="extras-content"></div>
     </section>
 
   </main>
@@ -366,6 +88,10 @@
   <!-- Bootstrap 5 JS & Scripts-->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="script.js"></script>
-
 </body>
+
 </html>
+
+<style>
+
+</style>

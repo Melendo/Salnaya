@@ -1,0 +1,174 @@
+{
+  "desayuno": [
+    {
+      "categoria": "Opciones de desayuno",
+      "icono": "bi-cup-hot",
+      "platos": [
+        {
+          "nombre": "Desayuno (Café + bollería)",
+          "descripcion": "Opción de: Napolitana, 3 churros, 2 porras, donut pequeño, croissant o tostadas con tomate.",
+          "precio": "2,00€"
+        },
+        {
+          "nombre": "Tostadas con tomate",
+          "descripcion": "Tostadas recién hechas con tomate natural.",
+          "precio": "1,80€"
+        }
+      ]
+    },
+    {
+      "categoria": "Bollería",
+      "icono": "bi-cake",
+      "platos": [
+        { "nombre": "Donut pequeña", "precio": "1,10€" },
+        { "nombre": "Donut grande", "precio": "1,50€" },
+        { "nombre": "Croissant normal", "precio": "1,20€" },
+        { "nombre": "Croissant chocolate", "precio": "1,50€" },
+        { "nombre": "Porra", "precio": "0,70€" },
+        { "nombre": "Churro", "precio": "0,40€" },
+        { "nombre": "Napolitana chocolate", "precio": "1,10€" },
+        { "nombre": "Croissant jamón y queso", "precio": "1,50€" },
+        { "nombre": "Napolitana jamón y queso", "precio": "1,50€" },
+        { "nombre": "Torrijas", "precio": "1,50€" },
+        { "nombre": "Palmeras", "precio": "1,50€" }
+      ]
+    }
+  ],
+  "comida": [
+    {
+      "categoria": "Bocadillos",
+      "icono": "bi-bag",
+      "platos": [
+        { "nombre": "Bocadillo de Jamón", "precio": "4,00€" },
+        { "nombre": "Bocadillo de Calamares", "precio": "4,50€" },
+        { "nombre": "Bocadillo de Lomo", "precio": "4,00€" },
+        { "nombre": "Bocadillo de Bacon", "precio": "4,00€" },
+        { "nombre": "Bocadillo de Tortilla", "precio": "4,00€" },
+        { "nombre": "Bocadillo Catalana", "precio": "4,00€" },
+        { "nombre": "Bocadillo de Panceta", "precio": "4,50€" },
+        { "nombre": "Bocadillo de Pollo", "precio": "5,00€" },
+        { "nombre": "Bocadillo de Ternera", "precio": "5,50€" },
+        { "nombre": "Bocadillo de Oreja", "precio": "4,50€" }
+      ]
+    },
+    {
+      "categoria": "Montados",
+      "icono": "bi-basket",
+      "platos": [
+        { "nombre": "Montado Jamón", "precio": "2,00€" },
+        { "nombre": "Montado Calamares", "precio": "2,00€" },
+        { "nombre": "Montado Lomo", "precio": "2,00€" },
+        { "nombre": "Montado Bacon", "precio": "2,00€" },
+        { "nombre": "Montado Tortilla", "precio": "2,00€" },
+        { "nombre": "Montado Catalana", "precio": "2,00€" },
+        { "nombre": "Montado Panceta", "precio": "2,25€" },
+        { "nombre": "Montado Pollo", "precio": "2,50€" },
+        { "nombre": "Montado Matrimonio", "precio": "2,25€" }
+      ]
+    },
+    {
+      "categoria": "Especiales y Raciones",
+      "icono": "bi-star",
+      "platos": [
+        { "nombre": "Quesadillas", "precio": "2,50€" },
+        { "nombre": "Hot Dog", "precio": "2,50€" },
+        { "nombre": "Salchipapas", "precio": "4,50€" },
+        { "nombre": "Salchipollo", "precio": "5,00€" },
+        { "nombre": "Bandeja de pollo", "precio": "12,00€ / 24,00€" },
+        { "nombre": "Durum Normal", "precio": "5,00€" },
+        { "nombre": "Durum XXL", "precio": "8,50€" },
+        { "nombre": "Alitas (Ración)", "precio": "6,00€" },
+        { "nombre": "Huevos rotos con jamón", "precio": "6,00€" },
+        { "nombre": "Croquetas de jamón (ración)", "precio": "6,00€" },
+        { "nombre": "Croquetas de kebab (ración)", "precio": "8,00€" },
+        { "nombre": "Patatas (ración)", "precio": "2,80€" },
+        { "nombre": "Calamares (ración)", "precio": "8,00€" },
+        { "nombre": "Nuggets (ración)", "precio": "6,00€" },
+        { "nombre": "Bocadillo XXL (pollo o bacon) + mini tinto/cerveza", "precio": "15,00€" }
+      ]
+    },
+    {
+      "categoria": "Hamburguesas y Sándwiches",
+      "icono": "bi-database",
+      "platos": [
+        { "nombre": "Hamburguesa especial (carne casera)", "precio": "5,00€" },
+        { "nombre": "Hamburguesa normal (carne casera)", "precio": "4,00€" },
+        { "nombre": "Hamburguesa de pollo", "precio": "5,00€" },
+        { "nombre": "Hamburguesa gourmet casera", "precio": "6,50€" },
+        { "nombre": "Hamburguesa vegetariana", "precio": "5,00€" },
+        { "nombre": "Sándwich normal", "precio": "3,00€" },
+        { "nombre": "Sándwich especial", "precio": "4,00€" }
+      ]
+    },
+    {
+      "categoria": "Platos combinados",
+      "icono": "bi-collection",
+      "platos": [
+        { "nombre": "Combinado (Pollo)", "precio": "6,00€" },
+        { "nombre": "Combinado (Ternera)", "precio": "6,00€" }
+      ]
+    }
+  ],
+  "bebidas": [
+    {
+      "categoria": "Bebidas frías",
+      "icono": "bi-cup-straw",
+      "platos": [
+        { "nombre": "Refrescos", "precio": "1,60€" },
+        { "nombre": "Monster", "precio": "2,15€" },
+        { "nombre": "Agua pequeña", "precio": "1,20€" },
+        { "nombre": "Agua grande", "precio": "2,00€" },
+        { "nombre": "Zumos de bote", "precio": "1,60€" }
+      ]
+    },
+    {
+      "categoria": "Bebidas calientes",
+      "icono": "bi-cup-straw",
+      "platos": [
+        { "nombre": "Café con leche (normal)", "precio": "1,20€" },
+        { "nombre": "Café con leche (soja/almendras)", "precio": "1,30€" },
+        { "nombre": "Té normal", "precio": "1,20€" },
+        { "nombre": "Té especial", "precio": "1,30€" }
+      ]
+    },
+    {
+      "categoria": "Bebidas alcohólicas",
+      "icono": "bi-cup-straw",
+      "platos": [
+        { "nombre": "Caña / Tercio Aguila", "precio": "1,60€" },
+        { "nombre": "Cerveza jarra fría", "precio": "2,00€" },
+        { "nombre": "Cerveza Corona", "precio": "1,25€" },
+        { "nombre": "Desperados Mojito (lata)", "precio": "1,50€" },
+        { "nombre": "Mini de cerveza", "precio": "4,00€" },
+        { "nombre": "Mini de Sánchez", "precio": "4,00€" },
+        { "nombre": "Mini de tinto de verano", "precio": "3,50€" },
+        { "nombre": "Licor de hierbas", "precio": "1,50€" },
+        { "nombre": "Crema de orujo", "precio": "1,50€" },
+        { "nombre": "Mojito", "precio": "5,00€" }
+      ]
+    },
+    {
+      "categoria": "Batidos",
+      "icono": "bi-cup-straw",
+      "platos": [
+        { "nombre": "Batido de chocolate (pequeño)", "precio": "1,80€" },
+        { "nombre": "Batidos 500ml", "precio": "3,00€" },
+        { "nombre": "Batidos 1000ml", "precio": "5,50€" }
+      ]
+    }
+  ],
+  "extras": [
+    {
+      "categoria": "Snacks y Helados",
+      "icono": "bi-snow",
+      "platos": [
+        { "nombre": "Bolsas de patatas", "precio": "1,50€" },
+        { "nombre": "Bolsas de chuches", "precio": "1,30€" },
+        { "nombre": "Chocolatinas", "precio": "1,30€" },
+        { "nombre": "Helado 1 bola", "precio": "1,50€" },
+        { "nombre": "Helado 2 bolas", "precio": "3,00€" },
+        { "nombre": "Sandwich helado", "precio": "2,00€" }
+      ]
+    }
+  ]
+}
