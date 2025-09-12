@@ -3,6 +3,8 @@ body {
     background-color: #ddb990;
     /* Marrón claro suave */
     color: #3b2a1a;
+    font-family: 'Montserrat', Arial, sans-serif;
+
 }
 
 header {
@@ -20,6 +22,7 @@ header h2 {
 /* --- Reducción ligera del espacio entre secciones principales --- */
 .menu-section {
     padding: 2rem 1rem;
+    scroll-margin-top: 80px;
     /* antes 3rem (reducido ligeramente) */
 }
 
@@ -43,6 +46,20 @@ header h2 {
     margin-right: 0.75rem;
     color: #8B5E3C;
     font-size: 1.1rem;
+}
+
+h2,
+h3,
+.navbar-brand {
+    font-family: 'Cinzel Decorative', 'Cinzel', 'Playfair Display', serif;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.menu-item h5 {
+    font-family: 'Cinzel Decorative', 'Cinzel', 'Playfair Display', serif;
+    font-weight: 700;
+    letter-spacing: 2px;
 }
 
 /* Separador central */
@@ -142,8 +159,6 @@ body.dark-mode .accordion-button::after {
     border: none;
     background: transparent;
     color: white;
-    font-size: 1.2rem;
-    margin-left: 1rem;
     cursor: pointer;
 }
 
