@@ -30,6 +30,11 @@ toggleBtn.addEventListener('click', () => {
         logoImg.src = LIGHT_LOGO;
         localStorage.setItem('theme', 'light');
     }
+    // Colapsar navbar si está abierto
+    const navbarCollapse = document.getElementById('navbarNav');
+    if (navbarCollapse.classList.contains('show')) {
+        new bootstrap.Collapse(navbarCollapse).hide();
+    }
 });
 
 async function cargarMenu() {
@@ -96,3 +101,17 @@ document.querySelectorAll('.navbar-nav .nav-link').forEach(link => {
       }
     });
   });
+
+// Cerrar navbar al hacer clic fuera de él
+document.addEventListener('click', function (event) {
+  const navbarCollapse = document.getElementById('navbarNav');
+  const navbarToggler = document.querySelector('.navbar-toggler');
+  // Si el navbar está abierto y el clic no es dentro del navbar ni en el toggler
+  if (
+    navbarCollapse.classList.contains('show') &&
+    !navbarCollapse.contains(event.target) &&
+    !navbarToggler.contains(event.target)
+  ) {
+    new bootstrap.Collapse(navbarCollapse).hide();
+  }
+});
