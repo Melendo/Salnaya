@@ -83,8 +83,5 @@ Si deseas contribuir al desarrollo de este proyecto, por favor sigue los siguien
 
 ## Licencia y Créditos
 
-### Licencia
-Este proyecto está bajo la Licencia **MIT** - ver el archivo [LICENSE](LICENSE) para más detalles si existiese.
-
 ### Créditos y Agradecimientos
-- Desarrollado por [Melendo](https://github.com/Melendo).
+- Desarrollado por [Melendo](https://github.com/Melendo) e [Iván Alcalde](https://github.com/IAlcCamDev).
